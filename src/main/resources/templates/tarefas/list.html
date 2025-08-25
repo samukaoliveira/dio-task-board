@@ -58,9 +58,10 @@
         <td th:text="${tarefa?.id}">1</td>
         <td th:text="${tarefa?.data}">15/08/2025</td>
         <td th:text="${tarefa?.titulo}">Estudar Java</td>
-        <td th:text="${tarefa?.titulo}">Ler sobre Streams API</td>
+        <td th:text="${tarefa?.descricao}">Ler sobre Streams API</td>
         <td th:text="${tarefa?.status}"><span class="done">Concluída</span></td>
         <td class="actions">
+            <a th:if="${!tarefa.concluida}" th:href="@{/tarefas/concluir/{id}(id=${tarefa.id})}"><button>Concluir</button></a>
             <button>Editar</button>
             <button>Excluir</button>
         </td>

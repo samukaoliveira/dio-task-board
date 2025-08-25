@@ -34,4 +34,8 @@ public class Tarefa {
 
     private Status status;
 
+    public boolean isConcluida() {
+        return this.status == Status.CONCLUIDA;
+    }
+
 }

@@ -4,9 +4,7 @@ import com.desafio.taks.model.Tarefa;
 import com.desafio.taks.service.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -33,5 +31,11 @@ public class TarefaController {
         ModelAndView modelAndView = new ModelAndView("tarefas/list");
         modelAndView.addObject("tarefas", tarefaService.findAll());
         return modelAndView;
+    }
+
+    @GetMapping("/concluir/{id}")
+    public String concluir(@PathVariable("id") Integer id) {
+        tarefaService.concluirTarefa(id);
+        return "redirect:/tarefas/list";
     }
 }
