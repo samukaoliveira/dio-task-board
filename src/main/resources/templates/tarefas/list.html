@@ -55,11 +55,11 @@
     <tbody>
     <!-- Exemplo de linhas (essas viriam do backend) -->
     <tr th:each="tarefa : ${tarefas}">
-        <td th:value="${tarefa?.id}">1</td>
-        <td th:value="${tarefa?.data}">15/08/2025</td>
-        <td th:value="${tarefa?.titulo}">Estudar Java</td>
-        <td th:value="${tarefa?.titulo}">Ler sobre Streams API</td>
-        <td th:value="${tarefa?.status}"><span class="done">Concluída</span></td>
+        <td th:text="${tarefa?.id}">1</td>
+        <td th:text="${tarefa?.data}">15/08/2025</td>
+        <td th:text="${tarefa?.titulo}">Estudar Java</td>
+        <td th:text="${tarefa?.titulo}">Ler sobre Streams API</td>
+        <td th:text="${tarefa?.status}"><span class="done">Concluída</span></td>
         <td class="actions">
             <button>Editar</button>
             <button>Excluir</button>

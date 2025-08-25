@@ -5,6 +5,7 @@ import com.desafio.taks.service.TarefaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,9 +16,21 @@ public class TarefaController {
     @Autowired
     private TarefaService tarefaService;
 
+    @GetMapping("/new")
+    public ModelAndView novo() {
+        return new ModelAndView("tarefas/new")
+                .addObject("tarefa", new Tarefa());
+    }
+
+    @PostMapping("/create")
+    public String create(Tarefa tarefa) {
+        tarefaService.save(tarefa);
+        return "redirect:/tarefas/list";
+    }
+
     @GetMapping("/list")
     public ModelAndView list() {
-        ModelAndView modelAndView = new ModelAndView("list");
+        ModelAndView modelAndView = new ModelAndView("tarefas/list");
         modelAndView.addObject("tarefas", tarefaService.findAll());
         return modelAndView;
     }

@@ -15,6 +15,10 @@ import java.time.LocalDate;
 @Setter
 public class Tarefa {
 
+    public Tarefa() {
+        this.status = Status.CRIADA;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

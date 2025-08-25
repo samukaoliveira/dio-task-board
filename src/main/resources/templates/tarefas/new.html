@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background: #f4f4f4;
+        }
+        .actions button {
+            margin-right: 5px;
+            padding: 5px 10px;
+        }
+        .done {
+            text-decoration: line-through;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+<h1>Cadastrar nova tarefa</h1>
+
+<form th:action="@{/tarefas/create}" th:object="${tarefa}" method="POST">
+    <table>
+        <thead>
+        <tr>
+            <th>Data</th>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Salvar</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Exemplo de linhas (essas viriam do backend) -->
+        <tr>
+            <td><input type="text" name="data" id="data"/></td>
+            <td><input type="text" name="titulo" id="titulo"/></td>
+            <td><input type="text" name="descricao" id="descricao"/></td>
+            <td><button type="submit">Salvar</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+</body>
+</html>
