@@ -1,8 +1,10 @@
 package com.desafio.taks.model;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.Value;
 import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDate;
@@ -18,12 +20,14 @@ public class Tarefa {
     private Integer id;
 
     @NotNull
-    private String titulo;
-
-    @NotNull
     private LocalDate data;
 
     @NotNull
+    private String titulo;
+
+    @NotNull
     private String descricao;
+
+    private Status status;
 
 }
