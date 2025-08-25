@@ -26,6 +26,19 @@ public class TarefaController {
         return "redirect:/tarefas/list";
     }
 
+    @GetMapping("/edit/{id}")
+    public ModelAndView edit(@PathVariable("id") Integer id) {
+        return new ModelAndView("tarefas/edit")
+                .addObject("tarefa", tarefaService.findById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("Tarefa não encontrada!")));
+    }
+
+    @PostMapping("/update")
+    public String update(Tarefa tarefa) {
+        tarefaService.save(tarefa);
+        return "redirect:/tarefas/list";
+    }
+
     @GetMapping("/list")
     public ModelAndView list() {
         ModelAndView modelAndView = new ModelAndView("tarefas/list");
