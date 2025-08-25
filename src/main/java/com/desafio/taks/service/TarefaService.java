@@ -34,4 +34,8 @@ public class TarefaService {
     public Optional<Tarefa> findById(Integer id) {
         return tarefaDAO.findById(id);
     }
+
+    public void deleteById(Integer id) {
+        tarefaDAO.deleteById(id);
+    }
 }

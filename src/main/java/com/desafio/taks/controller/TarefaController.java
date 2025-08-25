@@ -38,4 +38,10 @@ public class TarefaController {
         tarefaService.concluirTarefa(id);
         return "redirect:/tarefas/list";
     }
+
+    @PostMapping("/delete/{id}")
+    public String delete(@PathVariable("id") Integer id) {
+        tarefaService.deleteById(id);
+        return "redirect:/tarefas/list";
+    }
 }

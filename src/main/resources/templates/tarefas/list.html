@@ -63,7 +63,9 @@
         <td class="actions">
             <a th:if="${!tarefa.concluida}" th:href="@{/tarefas/concluir/{id}(id=${tarefa.id})}"><button>Concluir</button></a>
             <button>Editar</button>
-            <button>Excluir</button>
+            <form th:action="@{/tarefas/delete/{id}(id=${tarefa.id})}" method="POST">
+                <button type="submit">Excluir</button>
+            </form>
         </td>
     </tr>
     </tbody>
